@@ -7,8 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quotes: null,
-      colors: null
+      quotes: null
     };
 
     //Binding functions
@@ -58,30 +57,31 @@ class App extends Component {
     return link;
   }
 
-
   render() {
     return (
       // Card
       <div className="card m-md-3">
         {/* Card image */}
-        <div className="view" >
+        <div className="view">
           <img
-            src="https://placeimg.com/640/480" 
-            class="card-img-top" 
-            alt="photo"
+            src="https://placeimg.com/640/480"
+            className="card-img-top"
+            alt="api-img"
           />
-          <a href="#">
+          <a href="~">
             <div className="mask rgba-white-slight" />
           </a>
         </div>
         {/* Card content */}
         <div className="card-body text-center">
           {/* Text */}
-          <p class="card-text">
+          <p className="card-text">
             <div id="quote-box" className="text-center">
               <div id="text" className="blockquote">
                 <p className="mb-0">{this.state.quote}</p>
-                <p className="blockquote-footer" id="author">{this.state.author}</p>
+                <p className="blockquote-footer" id="author">
+                  {this.state.author}
+                </p>
                 <hr />
               </div>
               <div>
@@ -92,17 +92,15 @@ class App extends Component {
                 >
                   <FontAwesomeIcon icon={faRedoAlt} />
                 </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={this.tweetQuote}
+                <a
+                  href={this.tweetQuote()}
+                  className="text-white text-decoration-none"
+                  id="tweet-quote"
                 >
-                  <a
-                    className="text-white text-decoration-none"
-                    href={this.tweetQuote()} id="tweet-quote"
-                  >
+                  <button className="btn btn-primary" onClick={this.tweetQuote}>
                     <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </button>
+                  </button>
+                </a>
               </div>
             </div>
           </p>
